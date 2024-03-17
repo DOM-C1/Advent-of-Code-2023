@@ -13,12 +13,10 @@ def parse_csv():
 
 def get_first_and_last_digit(line):
     line = line[0]
-    x = [(str(digit), idx) for idx, digit in enumerate(line) if digit.isdigit()]+ find_number_as_str(line)
-
-    y = sorted(x,key = lambda x: x[1])
-    print(y)
-    s_num = str(y[0][0])
-    l_num = str(y[-1][0])
+    numbs_in_line = [(str(digit), idx) for idx, digit in enumerate(line) if digit.isdigit()]+ find_number_as_str(line)
+    numbs_in_line = sorted(numbs_in_line,key = lambda x: x[1])
+    s_num = str(numbs_in_line[0][0])
+    l_num = str(numbs_in_line[-1][0])
     num = s_num + l_num
     return int(num)
    
@@ -31,8 +29,6 @@ def find_number_as_str(s) ->tuple[str,int]:
         for match in re.finditer(number_word, s):
             start_position = match.start()
             all_numbers.append((int(number_value), start_position))
-
-    all_numbers = sorted(all_numbers, key=lambda x: x[1])
     return all_numbers
 
 
@@ -45,9 +41,7 @@ if __name__ == '__main__':
     
         
     print(sum(list_of_nums))
-    print(get_first_and_last_digit(['eight959tzxkgqjd']))
-
-
+ 
    
    
  
