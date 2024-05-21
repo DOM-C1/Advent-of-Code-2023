@@ -28,7 +28,6 @@ if __name__ == '__main__':
     data = open_and_parse_data()
     count = 0
     for row in data:
-        print(row)
         matches = count_number_of_matches(row[0], row[1])
         score = 2**(matches-1) if matches != 0 else 0
         count += score
