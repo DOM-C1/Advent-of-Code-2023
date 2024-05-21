@@ -21,12 +21,7 @@ def open_and_parse_data() -> list:
 
 def count_number_of_matches(card: list, winning_numbs: list) -> int:
     """Counts the number of matches between two lists."""
-    count = 0
-    for digit in card:
-        if digit in winning_numbs:
-            count += 1
-
-    return count
+    return len(set(card).intersection(set(winning_numbs)))
 
 
 if __name__ == '__main__':
